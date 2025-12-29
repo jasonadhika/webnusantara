@@ -5,246 +5,609 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bali: Pulau Dewata</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#beranda" class="logo">
-                <i class="fas fa-mountain"></i> Bali
-            </a>
-            
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-            
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#beranda" class="nav-link">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#spiritualitas" class="nav-link">Spiritualitas</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tradisi" class="nav-link">Tradisi & Masyarakat</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#alam" class="nav-link">Alam & Kehidupan</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#modern" class="nav-link">Bali di Era Modern</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#tentang" class="nav-link">Tentang</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero / Beranda Section -->
+    <!-- Hero / Beranda Section dengan Navbar Integratif -->
     <section id="beranda" class="hero">
+        <!-- Navbar Transparan di Atas Background Hero -->
+        <nav class="navbar transparent" id="navbar">
+            <div class="nav-container">
+                <a href="#beranda" class="logo">
+                    <i class="fas fa-mountain"></i> 
+                    <span class="logo-text">budaya<span class="logo-highlight">bali</span></span>
+                </a>
+                
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#beranda" class="nav-link active" data-nav="beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#spiritualitas" class="nav-link" data-nav="spiritualitas">Spiritualitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tradisi" class="nav-link" data-nav="tradisi">Tradisi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#alam" class="nav-link" data-nav="alam">Alam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#modern" class="nav-link" data-nav="modern">Modern</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tentang" class="nav-link" data-nav="tentang">Tentang</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
         <div class="hero-content">
             <h1>Pulau Dewata</h1>
             <p class="quote">"Bali bukan sekadar destinasi, tetapi pengalaman spiritual yang menyentuh jiwa."</p>
             <p class="intro">Sebuah pulau di Indonesia yang dikenal dengan keindahan alam, seni budaya yang kaya, tradisi spiritual yang mendalam, serta keramahan masyarakatnya. Bali telah memikat dunia dengan pesonanya yang tak tertandingi.</p>
-            <a href="#spiritualitas" class="btn">Jelajahi Bali</a>
+            <a href="#spiritualitas" class="btn btn-hero">
+                <i class="fas fa-compass"></i> Jelajahi Bali
+            </a>
+            
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
+        
+        <!-- Hero Overlay untuk efek gelap -->
+        <div class="hero-overlay"></div>
     </section>
 
-    <!-- Spiritualitas Section -->
+    <!-- Spiritualitas Section - HANYA 3 CARD (bukan carousel) -->
     <section id="spiritualitas" class="content-section">
         <div class="container">
-            <h2 class="section-title">Spiritualitas</h2>
-            <div class="content-grid">
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Pura" class="card-img">
-                    <div class="card-content">
-                        <h3>Pura</h3>
-                        <p>[Deskripsi tentang pura dan perannya dalam kehidupan spiritual masyarakat Bali]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Upacara" class="card-img">
-                    <div class="card-content">
-                        <h3>Upacara</h3>
-                        <p>[Deskripsi tentang berbagai upacara dan maknanya dalam budaya Bali]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Makna" class="card-img">
-                    <div class="card-content">
-                        <h3>Makna</h3>
-                        <p>[Penjelasan tentang filosofi dan makna spiritual dalam kehidupan masyarakat Bali]</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tradisi & Masyarakat Section -->
-    <section id="tradisi" class="content-section">
-        <div class="container">
-            <h2 class="section-title">Tradisi & Masyarakat</h2>
-            <div class="content-grid">
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Tari" class="card-img">
-                    <div class="card-content">
-                        <h3>Tari</h3>
-                        <p>[Deskripsi tentang berbagai tarian tradisional Bali dan maknanya]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Banjar" class="card-img">
-                    <div class="card-content">
-                        <h3>Banjar</h3>
-                        <p>[Penjelasan tentang sistem banjar dan perannya dalam masyarakat Bali]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Sosial" class="card-img">
-                    <div class="card-content">
-                        <h3>Sosial</h3>
-                        <p>[Deskripsi tentang struktur sosial dan nilai-nilai masyarakat Bali]</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Alam & Kehidupan Section -->
-    <section id="alam" class="content-section">
-        <div class="container">
-            <h2 class="section-title">Alam & Kehidupan</h2>
-            <div class="content-grid">
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Subak" class="card-img">
-                    <div class="card-content">
-                        <h3>Subak</h3>
-                        <p>[Penjelasan tentang sistem subak dan pentingnya dalam pertanian Bali]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Sawah" class="card-img">
-                    <div class="card-content">
-                        <h3>Sawah</h3>
-                        <p>[Deskripsi tentang keindahan sawah terasering dan kehidupan agraris Bali]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Alam" class="card-img">
-                    <div class="card-content">
-                        <h3>Alam Bali</h3>
-                        <p>[Deskripsi tentang keindahan alam Bali dan pengaruhnya pada budaya]</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bali di Era Modern Section -->
-    <section id="modern" class="content-section">
-        <div class="container">
-            <h2 class="section-title">Bali di Era Modern</h2>
-            <div class="content-grid">
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Generasi Muda" class="card-img">
-                    <div class="card-content">
-                        <h3>Generasi Muda</h3>
-                        <p>[Deskripsi tentang peran generasi muda dalam melestarikan budaya Bali di era modern]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Kreativitas" class="card-img">
-                    <div class="card-content">
-                        <h3>Kreativitas Modern</h3>
-                        <p>[Penjelasan tentang inovasi seni dan budaya Bali di era modern]</p>
-                    </div>
-                </a>
-                <a href="cardtemplate.html" class="content-card">
-                    <img src="" alt="Pelestarian" class="card-img">
-                    <div class="card-content">
-                        <h3>Pelestarian Budaya</h3>
-                        <p>[Deskripsi tentang upaya pelestarian budaya Bali di era modern]</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tentang Section -->
-    <section id="tentang" class="content-section about-section">
-        <div class="container">
-            <h2 class="section-title">Tentang</h2>
-            <div class="about-content">
-                <h3>Tujuan Kami</h3>
-                <p>Website ini dibuat dengan tujuan memperkenalkan kekayaan budaya, tradisi, dan keindahan alam Bali kepada dunia. Kami berkomitmen untuk menyajikan informasi yang akurat dan mendalam tentang Pulau Dewata, serta mendokumentasikan warisan budaya yang tak ternilai harganya.</p>
-                <p>Kami percaya bahwa dengan memahami dan menghargai budaya Bali, kita dapat turut serta dalam upaya pelestariannya untuk generasi mendatang.</p>
+            <div class="section-header">
+                <h2 class="section-title">Spiritualitas</h2>
+                <p class="section-subtitle">Inti kehidupan masyarakat Bali yang terwujud dalam ritual dan kepercayaan</p>
             </div>
             
-            <h3>Tim Kami</h3>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="..." alt="Anggota Tim" class="team-img">
-                    <h4>Putu Sari</h4>
-                    <p>Peneliti Budaya Bali</p>
-                    <p>[Deskripsi singkat tentang peran dan keahlian]</p>
+            <!-- GRID 3 CARD (TANPA CAROUSEL) -->
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <a href="cardtemplate.html?card=pura" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pura" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Tempat Suci</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pura</h3>
+                        <p class="card-description">Pura adalah tempat suci umat Hindu Bali yang berfungsi sebagai pusat aktivitas spiritual dan upacara keagamaan.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Keagamaan</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Card 2 -->
+                <a href="cardtemplate.html?card=upacara" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Upacara" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Ritual</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Upacara</h3>
+                        <p class="card-description">Upacara seperti Galungan, Kuningan, dan Nyepi adalah bagian tak terpisahkan dari kehidupan spiritual masyarakat Bali.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Tradisi</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Card 3 -->
+                <a href="cardtemplate.html?card=makna" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Makna" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Filosofi</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Makna Spiritual</h3>
+                        <p class="card-description">Filosofi Tri Hita Karana menekankan harmoni antara manusia dengan Tuhan, sesama manusia, dan alam semesta.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Filsafat</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tradisi Section - Carousel 6 Card -->
+    <section id="tradisi" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tradisi & Masyarakat</h2>
+                <p class="section-subtitle">Warisan budaya yang hidup dalam kehidupan sehari-hari masyarakat Bali</p>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <!-- Area Slide Kiri (Transparan) -->
+                    <div class="carousel-slide-area left" data-direction="prev">
+                        <div class="slide-icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-track" id="carousel-track-tradisi">
+                        <!-- Card 1 -->
+                        <a href="cardtemplate.html?card=tari" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tari" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Seni Pertunjukan</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Tari Tradisional</h3>
+                                <p class="card-description">Berbagai tarian tradisional Bali seperti Legong, Kecak, dan Barong yang kaya makna filosofis.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Seni</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 2 -->
+                        <a href="cardtemplate.html?card=banjar" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banjar" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Organisasi Sosial</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Banjar</h3>
+                                <p class="card-description">Sistem organisasi masyarakat adat Bali yang berfungsi sebagai wadah gotong royong dan sosial.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Masyarakat</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 3 -->
+                        <a href="cardtemplate.html?card=sosial" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sosial" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Struktur Sosial</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Struktur Sosial</h3>
+                                <p class="card-description">Struktur sosial masyarakat Bali yang didasarkan pada sistem kasta dan nilai-nilai gotong royong.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Sosial</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 4 -->
+                        <a href="cardtemplate.html?card=seni" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Seni" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Seni Rupa</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Seni Rupa</h3>
+                                <p class="card-description">Seni lukis, ukir, dan patung Bali yang terkenal dengan detail rumit dan makna simbolis.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Kesenian</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 5 -->
+                        <a href="cardtemplate.html?card=musik" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0c6e4d6d6c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Musik" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Musik Tradisional</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Musik Tradisional</h3>
+                                <p class="card-description">Gamelan Bali dengan berbagai jenis seperti Gong Kebyar, Semar Pegulingan, dan Angklung.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Musik</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 6 -->
+                        <a href="cardtemplate.html?card=pakaian" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pakaian" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Busana Tradisional</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Pakaian Adat</h3>
+                                <p class="card-description">Busana tradisional Bali seperti kebaya, udeng, dan kain songket dengan makna filosofis.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Busana</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Area Slide Kanan (Transparan) -->
+                    <div class="carousel-slide-area right" data-direction="next">
+                        <div class="slide-icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="team-member">
-                    <img src="..." alt="Anggota Tim" class="team-img">
-                    <h4>Wayan Adi</h4>
-                    <p>Ahli Sejarah Bali</p>
-                    <p>[Deskripsi singkat tentang peran dan keahlian]</p>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dots" id="carousel-dots-tradisi"></div>
                 </div>
-                <div class="team-member">
-                    <img src="..." alt="Anggota Tim" class="team-img">
-                    <h4>Ni Luh Desi</h4>
-                    <p>Fotografer Budaya</p>
-                    <p>[Deskripsi singkat tentang peran dan keahlian]</p>
+                
+                <div class="mobile-nav-buttons">
+                    <button class="mobile-carousel-btn prev-btn" data-section="tradisi">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="mobile-carousel-btn next-btn" data-section="tradisi">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Alam & Kehidupan Section - Carousel 6 Card -->
+    <section id="alam" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Alam & Kehidupan</h2>
+                <p class="section-subtitle">Harmoni antara manusia dengan alam yang terjaga dalam budaya Bali</p>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-wrapper">
+                    <!-- Area Slide Kiri (Transparan) -->
+                    <div class="carousel-slide-area left" data-direction="prev">
+                        <div class="slide-icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-track" id="carousel-track-alam">
+                        <!-- Card 1 -->
+                        <a href="cardtemplate.html?card=subak" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Subak" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Sistem Irigasi</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Subak</h3>
+                                <p class="card-description">Sistem irigasi tradisional Bali yang telah diakui UNESCO sebagai Warisan Dunia.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Pertanian</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 2 -->
+                        <a href="cardtemplate.html?card=sawah" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sawah" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Pemandangan Alam</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Sawah Terasering</h3>
+                                <p class="card-description">Keindahan sawah terasering seperti Jatiluwih dan Tegallalang yang memukau dunia.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Lanskap</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 3 -->
+                        <a href="cardtemplate.html?card=alam" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alam" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Keindahan Alam</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Keindahan Alam</h3>
+                                <p class="card-description">Keindahan pantai, gunung, dan hutan tropis yang menjadi sumber inspirasi budaya Bali.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Alam</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 4 -->
+                        <a href="cardtemplate.html?card=fauna" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Fauna" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Keanekaragaman Hayati</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Fauna Bali</h3>
+                                <p class="card-description">Berbagai spesies endemik seperti Jalak Bali dan kehidupan laut yang kaya.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Satwa</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 5 -->
+                        <a href="cardtemplate.html?card=pertanian" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0c6e4d6d6c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pertanian" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Pertanian Organik</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Pertanian Organik</h3>
+                                <p class="card-description">Sistem pertanian organik tradisional yang harmonis dengan alam dan kosmologi Bali.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Ekologi</span>
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <!-- Card 6 -->
+                        <a href="cardtemplate.html?card=pantai" class="content-card carousel-item">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pantai" class="card-img">
+                                <div class="card-overlay">
+                                    <div class="card-badge">Wisata Pantai</div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="card-title">Pantai Eksotis</h3>
+                                <p class="card-description">Pantai-pantai eksotis Bali dengan pasir putih dan ombak yang menjadi daya tarik wisata.</p>
+                                <div class="card-footer">
+                                    <span class="card-tag"><i class="fas fa-tag"></i> Wisata</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <!-- Area Slide Kanan (Transparan) -->
+                    <div class="carousel-slide-area right" data-direction="next">
+                        <div class="slide-icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <div class="carousel-dots" id="carousel-dots-alam"></div>
+                </div>
+                
+                <div class="mobile-nav-buttons">
+                    <button class="mobile-carousel-btn prev-btn" data-section="alam">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="mobile-carousel-btn next-btn" data-section="alam">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bali Modern Section - Card Grid (bukan carousel) -->
+    <section id="modern" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bali di Era Modern</h2>
+                <p class="section-subtitle">Adaptasi budaya Bali dalam menghadapi perkembangan zaman</p>
+            </div>
+            
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <a href="cardtemplate.html?card=generasi" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Generasi Muda" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Generasi Baru</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Generasi Muda</h3>
+                        <p class="card-description">Peran generasi muda dalam melestarikan budaya Bali melalui media digital dan kreativitas baru.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Milenial</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Card 2 -->
+                <a href="cardtemplate.html?card=kreativitas" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kreativitas" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Inovasi</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Kreativitas Modern</h3>
+                        <p class="card-description">Inovasi seni dan budaya Bali yang beradaptasi dengan perkembangan zaman tanpa kehilangan esensi.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Kreatif</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Card 3 -->
+                <a href="cardtemplate.html?card=pelestarian" class="content-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pelestarian" class="card-img">
+                        <div class="card-overlay">
+                            <div class="card-badge">Pelestarian</div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Pelestarian Budaya</h3>
+                        <p class="card-description">Upaya melestarikan budaya Bali melalui pendidikan, festival, dan dokumentasi digital.</p>
+                        <div class="card-footer">
+                            <span class="card-tag"><i class="fas fa-tag"></i> Konservasi</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Section - DIRAPIKAN -->
+    <section id="tentang" class="content-section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tentang Kami</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 class="about-title">Misi Kami</h3>
+                    <p class="about-description">Website ini dibuat dengan tujuan memperkenalkan kekayaan budaya, tradisi, dan keindahan alam Bali kepada dunia. Kami berkomitmen untuk menyajikan informasi yang akurat dan mendalam tentang Pulau Dewata, serta mendokumentasikan warisan budaya yang tak ternilai harganya.</p>
+                    <p class="about-description">Kami percaya bahwa dengan memahami dan menghargai budaya Bali, kita dapat turut serta dalam upaya pelestariannya untuk generasi mendatang.</p>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h4 class="stat-number">500+</h4>
+                        <p class="stat-label">Artikel Budaya</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="stat-number">4</h4>
+                        <p class="stat-label">Anggota Tim</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4 class="stat-number">2023</h4>
+                        <p class="stat-label">Tahun Didirikan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="team-section">
+                <h3 class="team-title">Tim Kami</h3>
+                <div class="team-grid">
+                    <!-- Anggota Tim 1 -->
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Putu Sari" class="member-img">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Putu Sari</h4>
+                            <p class="member-role">Peneliti Budaya Bali</p>
+                            <p class="member-bio">Ahli budaya Bali dengan pengalaman 10 tahun meneliti tradisi dan spiritualitas Bali.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Anggota Tim 2 -->
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wayan Adi" class="member-img">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Wayan Adi</h4>
+                            <p class="member-role">Ahli Sejarah Bali</p>
+                            <p class="member-bio">Sejarawan spesialis sejarah Bali kuno dan perkembangan kebudayaan Bali modern.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Anggota Tim 3 -->
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ni Luh Desi" class="member-img">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Ni Luh Desi</h4>
+                            <p class="member-role">Fotografer Budaya</p>
+                            <p class="member-bio">Fotografer profesional yang mengabadikan keindahan alam dan budaya Bali.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Anggota Tim 4 -->
+                    <div class="team-member">
+                        <div class="member-photo">
+                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Komang Yoga" class="member-img">
+                        </div>
+                        <div class="member-info">
+                            <h4 class="member-name">Komang Yoga</h4>
+                            <p class="member-role">Web Developer</p>
+                            <p class="member-bio">Developer yang bertanggung jawab atas desain dan pengembangan website ini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-about">
-                <h3 class="footer-logo">Bali</h3>
-                <p class="footer-description">Website ini didedikasikan untuk memperkenalkan keindahan dan kekayaan budaya Bali kepada dunia. Mari bersama melestarikan warisan budaya yang tak ternilai ini.</p>
-                <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-logo">Bali<span class="footer-logo-highlight">Dewata</span></h3>
+                    <p class="footer-description">Website ini didedikasikan untuk memperkenalkan keindahan dan kekayaan budaya Bali kepada dunia. Mari bersama melestarikan warisan budaya yang tak ternilai ini.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Navigasi</h4>
+                    <ul class="footer-list">
+                        <li><a href="#beranda"><i class="fas fa-home"></i> Beranda</a></li>
+                        <li><a href="#spiritualitas"><i class="fas fa-pray"></i> Spiritualitas</a></li>
+                        <li><a href="#tradisi"><i class="fas fa-users"></i> Tradisi</a></li>
+                        <li><a href="#alam"><i class="fas fa-tree"></i> Alam</a></li>
+                        <li><a href="#modern"><i class="fas fa-laptop-code"></i> Modern</a></li>
+                        <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-title">Kontak</h4>
+                    <ul class="footer-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Denpasar, Bali, Indonesia</li>
+                        <li><i class="fas fa-envelope"></i> info@balidewata.com</li>
+                        <li><i class="fas fa-phone"></i> +62 361 123456</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="#beranda">Beranda</a></li>
-                    <li><a href="#spiritualitas">Spiritualitas</a></li>
-                    <li><a href="#tradisi">Tradisi & Masyarakat</a></li>
-                    <li><a href="#alam">Alam & Kehidupan</a></li>
-                    <li><a href="#modern">Bali di Era Modern</a></li>
-                    <li><a href="#tentang">Tentang</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bali Dewata. Hak Cipta Dilindungi.</p>
             </div>
-            
-            <div class="footer-links">
-                <h4>Kontak</h4>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Denpasar, Bali, Indonesia</li>
-                    <li><i class="fas fa-envelope"></i> info@baliculture.com</li>
-                    <li><i class="fas fa-phone"></i> +62 361 123456</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2023 Bali Culture. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
@@ -253,68 +616,6 @@
         <i class="fas fa-chevron-up"></i>
     </a>
 
-    <script>
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('nav-menu');
-        
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-times');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                hamburger.querySelector('i').classList.remove('fa-times');
-                hamburger.querySelector('i').classList.add('fa-bars');
-            });
-        });
-        
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.getElementById('back-to-top');
-            
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-                backToTop.classList.add('active');
-            } else {
-                navbar.classList.remove('scrolled');
-                backToTop.classList.remove('active');
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Card hover effect enhancement
-        document.querySelectorAll('.content-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

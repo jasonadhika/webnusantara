@@ -10,19 +10,23 @@
     <style>
         .detail-header {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('gambarbg');
+                        url('https://images.unsplash.com/photo-1588666309990-d68f08e3d4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920');
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar (sama seperti index.html) -->
-    <nav class="navbar">
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-mountain"></i> Bali
+                <i class="fas fa-mountain"></i> 
+                <span class="logo-text">budaya<span class="logo-highlight">bali</span></span>
             </a>
             
             <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
             
             <ul class="nav-menu" id="nav-menu">
@@ -60,7 +64,7 @@
     <!-- Konten Detail -->
     <main class="detail-content">
         <div class="detail-container">
-            <div>
+            <div class="detail-images">
                 <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
                      alt="Pura Besakih" class="detail-image">
                 <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
@@ -93,11 +97,11 @@
                 <h2>Jenis-Jenis Pura</h2>
                 <p>Bali memiliki ribuan pura yang dikategorikan berdasarkan fungsi dan lokasinya:</p>
                 
-                <ul style="margin: 1.5rem 0; padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.8rem;"><strong>Pura Kahyangan Jagat</strong>: Pura umum yang boleh dikunjungi semua orang, seperti Pura Besakih (Pura Agung)</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Pura Swagina</strong>: Pura berdasarkan profesi, seperti Pura Subak untuk petani</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Pura Kawitan</strong>: Pura keluarga atau leluhur (sanggah)</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Pura Segara</strong>: Pura yang terletak di tepi laut, seperti Pura Tanah Lot dan Uluwatu</li>
+                <ul>
+                    <li><strong>Pura Kahyangan Jagat</strong>: Pura umum yang boleh dikunjungi semua orang, seperti Pura Besakih (Pura Agung)</li>
+                    <li><strong>Pura Swagina</strong>: Pura berdasarkan profesi, seperti Pura Subak untuk petani</li>
+                    <li><strong>Pura Kawitan</strong>: Pura keluarga atau leluhur (sanggah)</li>
+                    <li><strong>Pura Segara</strong>: Pura yang terletak di tepi laut, seperti Pura Tanah Lot dan Uluwatu</li>
                     <li><strong>Pura Desa</strong>: Pura untuk masyarakat desa setempat</li>
                 </ul>
 
@@ -113,10 +117,10 @@
                 <h2>Arsitektur yang Unik</h2>
                 <p>Arsitektur pura Bali adalah perpaduan harmonis antara seni, spiritualitas, dan alam. Ciri khasnya meliputi:</p>
                 
-                <ul style="margin: 1.5rem 0; padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.8rem;"><strong>Candi Bentar</strong>: Gerbang terbelah tanpa atap yang menjadi pintu masuk utama</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Kori Agung</strong>: Gerbang beratap dengan pintu yang hanya dibuka saat upacara besar</li>
-                    <li style="margin-bottom: 0.8rem;"><strong>Meru</strong): Menara bertingkat dengan atap ijuk, jumlah tingkatnya selalu ganjil (3, 5, 7, 9, atau 11)</li>
+                <ul>
+                    <li><strong>Candi Bentar</strong>: Gerbang terbelah tanpa atap yang menjadi pintu masuk utama</li>
+                    <li><strong>Kori Agung</strong>: Gerbang beratap dengan pintu yang hanya dibuka saat upacara besar</li>
+                    <li><strong>Meru</strong>: Menara bertingkat dengan atap ijuk, jumlah tingkatnya selalu ganjil (3, 5, 7, 9, atau 11)</li>
                     <li><strong>Padmasana</strong>: Tempat pemujaan tertinggi untuk Sang Hyang Widhi Wasa</li>
                 </ul>
 
@@ -127,11 +131,11 @@
         </div>
     </main>
 
-    <!-- Footer (sama seperti index.html) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-about">
-                <h3 class="footer-logo">Bali</h3>
+                <h3 class="footer-logo">Bali<span class="footer-logo-highlight">Dewata</span></h3>
                 <p class="footer-description">Website ini didedikasikan untuk memperkenalkan keindahan dan kekayaan budaya Bali kepada dunia. Mari bersama melestarikan warisan budaya yang tak ternilai ini.</p>
                 <div class="social-icons">
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
@@ -157,14 +161,14 @@
                 <h4>Kontak</h4>
                 <ul>
                     <li><i class="fas fa-map-marker-alt"></i> Denpasar, Bali, Indonesia</li>
-                    <li><i class="fas fa-envelope"></i> info@baliculture.com</li>
+                    <li><i class="fas fa-envelope"></i> info@balidewata.com</li>
                     <li><i class="fas fa-phone"></i> +62 361 123456</li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2023 Bali Culture. Hak Cipta Dilindungi.</p>
+            <p>&copy; 2023 Bali Dewata. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
@@ -177,11 +181,15 @@
         // Mobile Menu Toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
+        const backToTop = document.getElementById('back-to-top');
         
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             hamburger.querySelector('i').classList.toggle('fa-bars');
             hamburger.querySelector('i').classList.toggle('fa-times');
+            
+            // Toggle body scroll
+            document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
         
         // Close mobile menu when clicking on a link
@@ -190,19 +198,25 @@
                 navMenu.classList.remove('active');
                 hamburger.querySelector('i').classList.remove('fa-times');
                 hamburger.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
         });
         
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.getElementById('back-to-top');
-            
             if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
                 backToTop.classList.add('active');
             } else {
-                navbar.classList.remove('scrolled');
                 backToTop.classList.remove('active');
             }
         });
