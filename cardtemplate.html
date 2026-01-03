@@ -14,6 +14,149 @@
             background-size: cover;
             background-position: center;
         }
+        
+        /* NEW: Content Box dengan gambar dan teks dalam satu kotak */
+        .content-box {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin: 2.5rem 0;
+            transition: var(--transition);
+        }
+        
+        .content-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .content-box-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .content-box-content {
+            padding: 2rem;
+        }
+        
+        .content-box h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .content-box p {
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        /* Alternating layout untuk desktop */
+        @media (min-width: 768px) {
+            .content-box {
+                display: flex;
+                min-height: 300px;
+            }
+            
+            .content-box:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+            
+            .content-box-image {
+                width: 40%;
+                height: auto;
+                flex-shrink: 0;
+            }
+            
+            .content-box-content {
+                width: 60%;
+                padding: 2.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+        
+        /* Info Box styling */
+        .info-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #E6C158 100%);
+            color: var(--dark);
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin: 2.5rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .info-box h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .info-item {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            color: var(--dark);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-value {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, var(--light) 0%, rgba(244, 241, 222, 0.9) 100%);
+            border-left: 4px solid var(--primary);
+            padding: 2rem;
+            margin: 2.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .quote-author {
+            text-align: right;
+            color: var(--text-light);
+            margin-top: 1rem;
+            font-style: normal;
+            font-weight: 500;
+        }
+        
+        /* Back button styling */
+        .back-button-wrapper {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -25,9 +168,9 @@
                 <span class="logo-text">budaya<span class="logo-highlight">bali</span></span>
             </a>
             
-            <div class="hamburger" id="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
@@ -64,66 +207,183 @@
     <!-- Konten Detail -->
     <main class="detail-content">
         <div class="detail-container">
-            <div class="detail-images">
+            <!-- Content Box 1: Makna Pura -->
+            <div class="content-box">
                 <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
-                     alt="Pura Besakih" class="detail-image">
-                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
-                     alt="Pura di Pantai" class="detail-image">
+                     alt="Makna Filosofi Pura" class="content-box-image">
+                <div class="content-box-content">
+                    <h3>Makna dan Filosofi Pura</h3>
+                    <p>Pura dalam bahasa Bali berarti "tempat suci" atau "tempat yang dikelilingi tembok". Dalam konteks agama Hindu Bali, pura adalah tempat ibadah yang berfungsi sebagai jembatan antara manusia dengan Sang Hyang Widhi (Tuhan Yang Maha Esa) dan para dewa-dewi.</p>
+                    <p>Setiap pura memiliki struktur yang sangat simbolis, terdiri dari tiga bagian utama yang melambangkan tiga alam dalam kosmologi Hindu Bali.</p>
+                </div>
             </div>
-            
-            <div class="detail-text">
-                <h2>Makna dan Filosofi Pura</h2>
-                <p>Pura dalam bahasa Bali berarti "tempat suci" atau "tempat yang dikelilingi tembok". Dalam konteks agama Hindu Bali, pura adalah tempat ibadah yang berfungsi sebagai jembatan antara manusia dengan Sang Hyang Widhi (Tuhan Yang Maha Esa) dan para dewa-dewi.</p>
-                
-                <p>Setiap pura memiliki struktur yang sangat simbolis, terdiri dari tiga bagian utama:</p>
-                
-                <div class="detail-features">
-                    <div class="feature-item">
-                        <h4>Jaba Sisi (Halaman Luar)</h4>
-                        <p>Melambangkan dunia luar atau alam bhur (alam bawah), tempat manusia masih terikat dengan nafsu duniawi.</p>
+
+
+            <!-- Info Box -->
+            <div class="info-box">
+                <h3>Fakta Singkat Pura</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Jumlah di Bali</span>
+                        <span class="info-value">10,000+ Pura</span>
                     </div>
-                    
-                    <div class="feature-item">
-                        <h4>Jaba Tengah (Halaman Tengah)</h4>
-                        <p>Melambangkan alam bhuwah (alam tengah), tempat persiapan menuju kesucian.</p>
+                    <div class="info-item">
+                        <span class="info-label">Paling Tua</span>
+                        <span class="info-value">Pura Besakih (Abad 8)</span>
                     </div>
-                    
-                    <div class="feature-item">
-                        <h4>Jeroan (Halaman Dalam)</h4>
-                        <p>Melambangkan alam swah (alam atas), tempat paling suci dimana para dewa bersemayam.</p>
+                    <div class="info-item">
+                        <span class="info-label">Fungsi Utama</span>
+                        <span class="info-value">Tempat Ibadah</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Material Utama</span>
+                        <span class="info-value">Batu Andesit</span>
                     </div>
                 </div>
+            </div>
 
-                <h2>Jenis-Jenis Pura</h2>
-                <p>Bali memiliki ribuan pura yang dikategorikan berdasarkan fungsi dan lokasinya:</p>
-                
-                <ul>
-                    <li><strong>Pura Kahyangan Jagat</strong>: Pura umum yang boleh dikunjungi semua orang, seperti Pura Besakih (Pura Agung)</li>
-                    <li><strong>Pura Swagina</strong>: Pura berdasarkan profesi, seperti Pura Subak untuk petani</li>
-                    <li><strong>Pura Kawitan</strong>: Pura keluarga atau leluhur (sanggah)</li>
-                    <li><strong>Pura Segara</strong>: Pura yang terletak di tepi laut, seperti Pura Tanah Lot dan Uluwatu</li>
-                    <li><strong>Pura Desa</strong>: Pura untuk masyarakat desa setempat</li>
-                </ul>
+            <!-- Content Box 2: Jenis-jenis Pura -->
+            <div class="content-box">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
+                     alt="Jenis-jenis Pura" class="content-box-image">
+                <div class="content-box-content">
+                    <h3>Jenis-Jenis Pura di Bali</h3>
+                    <p>Bali memiliki ribuan pura yang dikategorikan berdasarkan fungsi, lokasi, dan komunitas pemakainya. Setiap jenis pura memiliki karakteristik dan fungsi yang berbeda.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>Pura Kahyangan Jagat</h4>
+                            <p>Pura umum yang boleh dikunjungi semua orang, seperti Pura Besakih.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Pura Swagina</h4>
+                            <p>Pura berdasarkan profesi tertentu, seperti Pura Subak untuk petani.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Pura Kawitan</h4>
+                            <p>Pura keluarga atau leluhur yang digunakan oleh keturunan tertentu.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Pura Segara</h4>
+                            <p>Pura di tepi laut seperti Pura Tanah Lot dan Uluwatu.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <h2>Ritual dan Upacara</h2>
-                <p>Kehidupan spiritual di pura sangat kaya dengan ritual yang dilakukan secara teratur:</p>
-                
-                <p><strong>Hari Raya Galungan dan Kuningan</strong>: Dirayakan setiap 210 hari sekali, merupakan perayaan kemenangan dharma (kebaikan) melawan adharma (kejahatan).</p>
-                
-                <p><strong>Odalan</strong>: Hari ulang tahun pura yang dirayakan setiap 210 hari sekali menurut kalender Bali. Selama odalan, pura dihias indah dan masyarakat mengadakan persembahyangan bersama.</p>
-                
-                <p><strong>Piodalan</strong>: Upacara pembersihan dan penyucian pura yang dilakukan pada hari-hari tertentu sesuai dengan wewaran (perhitungan kalender Bali).</p>
+            <!-- Quote Box -->
+            <div class="quote-box">
+                "Pura bukan hanya bangunan fisik, tetapi simbol kosmologi Hindu Bali yang menggambarkan perjalanan spiritual manusia menuju kesucian."
+                <div class="quote-author">— Ida Pedanda Gede Made Gunung</div>
+            </div>
 
-                <h2>Arsitektur yang Unik</h2>
-                <p>Arsitektur pura Bali adalah perpaduan harmonis antara seni, spiritualitas, dan alam. Ciri khasnya meliputi:</p>
-                
-                <ul>
-                    <li><strong>Candi Bentar</strong>: Gerbang terbelah tanpa atap yang menjadi pintu masuk utama</li>
-                    <li><strong>Kori Agung</strong>: Gerbang beratap dengan pintu yang hanya dibuka saat upacara besar</li>
-                    <li><strong>Meru</strong>: Menara bertingkat dengan atap ijuk, jumlah tingkatnya selalu ganjil (3, 5, 7, 9, atau 11)</li>
-                    <li><strong>Padmasana</strong>: Tempat pemujaan tertinggi untuk Sang Hyang Widhi Wasa</li>
-                </ul>
+            <!-- Content Box 3: Ritual dan Upacara -->
+            <div class="content-box">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
+                     alt="Ritual dan Upacara" class="content-box-image">
+                <div class="content-box-content">
+                    <h3>Ritual dan Upacara di Pura</h3>
+                    <p>Kehidupan spiritual di pura sangat kaya dengan ritual yang dilakukan secara teratur menurut kalender Bali. Setiap upacara memiliki makna dan tata cara yang khusus.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>Hari Raya Galungan</h4>
+                            <p>Perayaan kemenangan dharma melawan adharma, dirayakan setiap 210 hari.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Kuningan</h4>
+                            <p>Hari terakhir perayaan Galungan, ditandai dengan persembahan kuning.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Odalan</h4>
+                            <p>Hari ulang tahun pura yang dirayakan dengan berbagai upacara.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Pujawali</h4>
+                            <p>Upacara pembersihan dan penyucian pura secara berkala.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Content Box 4: Arsitektur -->
+            <div class="content-box">
+                <img src="https://images.unsplash.com/photo-1588666309990-d68f08e3d4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
+                     alt="Arsitektur Pura" class="content-box-image">
+                <div class="content-box-content">
+                    <h3>Arsitektur yang Unik dan Simbolis</h3>
+                    <p>Arsitektur pura Bali adalah perpaduan harmonis antara seni, spiritualitas, dan alam. Setiap elemen memiliki makna filosofis yang dalam dan simbolis.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>Candi Bentar</h4>
+                            <p>Gerbang terbelah tanpa atap yang menjadi pintu masuk utama pura.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Kori Agung</h4>
+                            <p>Gerbang beratap dengan pintu yang hanya dibuka saat upacara besar.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Meru</h4>
+                            <p>Menara bertingkat dengan atap ijuk, jumlah tingkatnya selalu ganjil.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4>Padmasana</h4>
+                            <p>Tempat pemujaan tertinggi untuk Sang Hyang Widhi Wasa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Box 5: Etika Berkunjung -->
+            <div class="content-box">
+                <div class="content-box-content">
+                    <h3>Etika Berkunjung ke Pura</h3>
+                    <p>Sebagai tempat suci, ada beberapa aturan dan etika yang perlu diperhatikan saat berkunjung ke pura untuk menghormati tradisi dan spiritualitas masyarakat Bali.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-tshirt"></i> Pakaian Sopan</h4>
+                            <p>Gunakan pakaian yang sopan dan menutup aurat. Selendang biasanya disediakan.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-volume-mute"></i> Hormati Ritual</h4>
+                            <p>Jangan mengganggu ketika ada upacara atau persembahyangan berlangsung.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-camera"></i> Foto dengan Izin</h4>
+                            <p>Minta izin sebelum mengambil foto, terutama saat ada upacara berlangsung.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-monument"></i> Jangan Naik Meru</h4>
+                            <p>Meru adalah bangunan sakral, jangan memanjat atau duduk di atasnya.</p>
+                        </div>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
+                     alt="Etika Berkunjung" class="content-box-image">
+            </div>
+
+            <!-- Info Box Pelestarian -->
+            <div class="info-box">
+                <h3>Pelestarian Budaya</h3>
+                <p>Di era modern, pura-pura di Bali menghadapi tantangan pelestarian budaya di tengah perkembangan pariwisata dan perubahan sosial. Banyak upaya dilakukan untuk menjaga keaslian dan fungsi spiritual pura sambil beradaptasi dengan perkembangan zaman.</p>
+            </div>
+
+            <!-- Back Button -->
+            <div class="back-button-wrapper">
                 <a href="index.html#spiritualitas" class="back-button">
                     <i class="fas fa-arrow-left"></i> Kembali ke Spiritualitas
                 </a>
@@ -138,22 +398,22 @@
                 <h3 class="footer-logo">Bali<span class="footer-logo-highlight">Dewata</span></h3>
                 <p class="footer-description">Website ini didedikasikan untuk memperkenalkan keindahan dan kekayaan budaya Bali kepada dunia. Mari bersama melestarikan warisan budaya yang tak ternilai ini.</p>
                 <div class="social-icons">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
             <div class="footer-links">
                 <h4>Navigasi</h4>
                 <ul>
-                    <li><a href="index.html#beranda">Beranda</a></li>
-                    <li><a href="index.html#spiritualitas">Spiritualitas</a></li>
-                    <li><a href="index.html#tradisi">Tradisi & Masyarakat</a></li>
-                    <li><a href="index.html#alam">Alam & Kehidupan</a></li>
-                    <li><a href="index.html#modern">Bali di Era Modern</a></li>
-                    <li><a href="index.html#tentang">Tentang</a></li>
+                    <li><a href="index.html#beranda"><i class="fas fa-home"></i> Beranda</a></li>
+                    <li><a href="index.html#spiritualitas"><i class="fas fa-pray"></i> Spiritualitas</a></li>
+                    <li><a href="index.html#tradisi"><i class="fas fa-users"></i> Tradisi & Masyarakat</a></li>
+                    <li><a href="index.html#alam"><i class="fas fa-tree"></i> Alam & Kehidupan</a></li>
+                    <li><a href="index.html#modern"><i class="fas fa-laptop-code"></i> Bali di Era Modern</a></li>
+                    <li><a href="index.html#tentang"><i class="fas fa-info-circle"></i> Tentang</a></li>
                 </ul>
             </div>
             
@@ -173,9 +433,9 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="back-to-top">
+    <button class="back-to-top" id="back-to-top" aria-label="Kembali ke atas">
         <i class="fas fa-chevron-up"></i>
-    </a>
+    </button>
 
     <script>
         // Mobile Menu Toggle
@@ -185,11 +445,15 @@
         
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            hamburger.querySelector('i').classList.toggle('fa-bars');
-            hamburger.querySelector('i').classList.toggle('fa-times');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
             
             // Toggle body scroll
             document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            
+            // Update aria-expanded
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
         
         // Close mobile menu when clicking on a link
@@ -199,6 +463,7 @@
                 hamburger.querySelector('i').classList.remove('fa-times');
                 hamburger.querySelector('i').classList.add('fa-bars');
                 document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
         
@@ -209,6 +474,7 @@
                 hamburger.querySelector('i').classList.remove('fa-times');
                 hamburger.querySelector('i').classList.add('fa-bars');
                 document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
             }
         });
         
@@ -237,6 +503,41 @@
                         });
                     }
                 }
+            });
+        });
+        
+        // Back to top functionality
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Handle keyboard navigation for accessibility
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.remove('fa-times');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.focus();
+            }
+        });
+        
+        // Content Box Hover Effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const contentBoxes = document.querySelectorAll('.content-box');
+            
+            contentBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
         });
     </script>

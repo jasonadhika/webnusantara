@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Hero / Beranda Section dengan Navbar Integratif -->
+    <!-- Hero Section -->
     <section id="beranda" class="hero">
-        <!-- Navbar Transparan di Atas Background Hero -->
         <nav class="navbar transparent" id="navbar">
             <div class="nav-container">
                 <a href="#beranda" class="logo">
@@ -19,9 +18,9 @@
                     <span class="logo-text">budaya<span class="logo-highlight">bali</span></span>
                 </a>
                 
-                <div class="hamburger" id="hamburger">
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
                 
                 <ul class="nav-menu" id="nav-menu">
                     <li class="nav-item">
@@ -46,7 +45,6 @@
             </div>
         </nav>
 
-        <!-- Hero Content -->
         <div class="hero-content">
             <h1>Pulau Dewata</h1>
             <p class="quote">"Bali bukan sekadar destinasi, tetapi pengalaman spiritual yang menyentuh jiwa."</p>
@@ -54,18 +52,12 @@
             <a href="#spiritualitas" class="btn btn-hero">
                 <i class="fas fa-compass"></i> Jelajahi Bali
             </a>
-            
-            <!-- Scroll Indicator -->
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
-            </div>
         </div>
         
-        <!-- Hero Overlay untuk efek gelap -->
         <div class="hero-overlay"></div>
     </section>
 
-    <!-- Spiritualitas Section - HANYA 3 CARD (bukan carousel) -->
+    <!-- Spiritualitas Section -->
     <section id="spiritualitas" class="content-section">
         <div class="container">
             <div class="section-header">
@@ -73,7 +65,6 @@
                 <p class="section-subtitle">Inti kehidupan masyarakat Bali yang terwujud dalam ritual dan kepercayaan</p>
             </div>
             
-            <!-- GRID 3 CARD (TANPA CAROUSEL) -->
             <div class="card-grid">
                 <!-- Card 1 -->
                 <a href="cardtemplate.html?card=pura" class="content-card">
@@ -129,7 +120,7 @@
         </div>
     </section>
 
-    <!-- Tradisi Section - Carousel 6 Card -->
+    <!-- Tradisi Section -->
     <section id="tradisi" class="content-section">
         <div class="container">
             <div class="section-header">
@@ -139,7 +130,6 @@
             
             <div class="carousel-container">
                 <div class="carousel-wrapper">
-                    <!-- Area Slide Kiri (Transparan) -->
                     <div class="carousel-slide-area left" data-direction="prev">
                         <div class="slide-icon">
                             <i class="fas fa-chevron-left"></i>
@@ -250,7 +240,6 @@
                         </a>
                     </div>
                     
-                    <!-- Area Slide Kanan (Transparan) -->
                     <div class="carousel-slide-area right" data-direction="next">
                         <div class="slide-icon">
                             <i class="fas fa-chevron-right"></i>
@@ -274,7 +263,7 @@
         </div>
     </section>
 
-    <!-- Alam & Kehidupan Section - Carousel 6 Card -->
+    <!-- Alam Section -->
     <section id="alam" class="content-section">
         <div class="container">
             <div class="section-header">
@@ -284,7 +273,6 @@
             
             <div class="carousel-container">
                 <div class="carousel-wrapper">
-                    <!-- Area Slide Kiri (Transparan) -->
                     <div class="carousel-slide-area left" data-direction="prev">
                         <div class="slide-icon">
                             <i class="fas fa-chevron-left"></i>
@@ -395,7 +383,6 @@
                         </a>
                     </div>
                     
-                    <!-- Area Slide Kanan (Transparan) -->
                     <div class="carousel-slide-area right" data-direction="next">
                         <div class="slide-icon">
                             <i class="fas fa-chevron-right"></i>
@@ -419,7 +406,7 @@
         </div>
     </section>
 
-    <!-- Bali Modern Section - Card Grid (bukan carousel) -->
+    <!-- Modern Section -->
     <section id="modern" class="content-section">
         <div class="container">
             <div class="section-header">
@@ -482,7 +469,7 @@
         </div>
     </section>
 
-    <!-- Tentang Section - DIRAPIKAN -->
+    <!-- Tentang Section -->
     <section id="tentang" class="content-section about-section">
         <div class="container">
             <div class="section-header">
@@ -515,7 +502,6 @@
             <div class="team-section">
                 <h3 class="team-title">Tim Kami</h3>
                 <div class="team-grid">
-                    <!-- Anggota Tim 1 -->
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Putu Sari" class="member-img">
@@ -527,7 +513,6 @@
                         </div>
                     </div>
                     
-                    <!-- Anggota Tim 2 -->
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Wayan Adi" class="member-img">
@@ -539,7 +524,6 @@
                         </div>
                     </div>
                     
-                    <!-- Anggota Tim 3 -->
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ni Luh Desi" class="member-img">
@@ -551,7 +535,6 @@
                         </div>
                     </div>
                     
-                    <!-- Anggota Tim 4 -->
                     <div class="team-member">
                         <div class="member-photo">
                             <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Komang Yoga" class="member-img">

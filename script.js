@@ -47,6 +47,29 @@ function handleNavbarScroll() {
     });
 }
 
+// ===== Handle Scroll Indicator =====
+function initScrollIndicator() {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (!scrollIndicator) return;
+    
+    // Hide on scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            scrollIndicator.classList.add('hidden');
+        } else {
+            scrollIndicator.classList.remove('hidden');
+        }
+    });
+    
+    // Hide when button is clicked
+    const exploreBtn = document.querySelector('.btn-hero');
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', () => {
+            scrollIndicator.classList.add('hidden');
+        });
+    }
+}
+
 // ===== Mobile Menu Toggle =====
 function toggleMobileMenu() {
     if (!navMenu || !hamburger) return;
@@ -58,8 +81,21 @@ function toggleMobileMenu() {
         icon.classList.toggle('fa-times');
     }
     
+    // Update aria-expanded for accessibility
+    hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+    
     // Toggle body scroll
     document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+    
+    // Focus management for accessibility
+    if (navMenu.classList.contains('active')) {
+        // Focus first link when menu opens
+        const firstLink = navMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+    } else {
+        // Focus hamburger when menu closes
+        hamburger.focus();
+    }
 }
 
 // ===== Smooth Scroll =====
@@ -81,6 +117,9 @@ function initSmoothScroll() {
                     behavior: 'smooth'
                 });
                 
+                // Update URL hash without scrolling
+                history.pushState(null, null, targetId);
+                
                 // Close mobile menu if open
                 if (navMenu && navMenu.classList.contains('active')) {
                     toggleMobileMenu();
@@ -95,22 +134,17 @@ class Carousel {
     constructor(sectionId) {
         this.sectionId = sectionId;
         this.section = document.getElementById(sectionId);
-        if (!this.section) {
-            return;
-        }
+        if (!this.section) return;
         
-        // Cari elemen carousel di dalam section
         this.track = this.section.querySelector('.carousel-track');
-        if (!this.track) {
-            return;
-        }
+        if (!this.track) return;
         
         this.cards = this.track.querySelectorAll('.carousel-item');
         this.leftSlideArea = this.section.querySelector('.carousel-slide-area.left');
         this.rightSlideArea = this.section.querySelector('.carousel-slide-area.right');
         this.dotsContainer = this.section.querySelector('.carousel-dots');
         
-        // Tombol mobile
+        // Mobile buttons
         const mobileButtons = this.section.querySelector('.mobile-nav-buttons');
         if (mobileButtons) {
             this.prevBtn = mobileButtons.querySelector('.prev-btn');
@@ -132,12 +166,15 @@ class Carousel {
     }
     
     init() {
-        if (this.cardCount <= this.cardsPerView) return; // Jika card kurang dari yang bisa ditampilkan, jangan buat carousel
+        if (this.cardCount <= this.cardsPerView) return;
         
         this.calculateMaxIndex();
         this.createDots();
         this.updateCarousel();
         this.addEventListeners();
+        
+        // Add keyboard navigation
+        this.addKeyboardNavigation();
     }
     
     calculateMaxIndex() {
@@ -151,8 +188,9 @@ class Carousel {
         const totalDots = this.maxIndex + 1;
         
         for (let i = 0; i < totalDots; i++) {
-            const dot = document.createElement('div');
+            const dot = document.createElement('button');
             dot.classList.add('carousel-dot');
+            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
             if (i === 0) dot.classList.add('active');
             dot.addEventListener('click', () => this.goToSlide(i));
             this.dotsContainer.appendChild(dot);
@@ -162,7 +200,7 @@ class Carousel {
     updateCarousel() {
         if (!this.track || this.cards.length === 0) return;
         
-        // Get the width of one card (including margin/gap)
+        // Get card width including gap
         const card = this.cards[0];
         if (!card) return;
         
@@ -174,7 +212,7 @@ class Carousel {
         const translateX = -this.currentIndex * totalWidth;
         
         // Apply transform
-        this.track.style.transition = 'transform 0.5s ease';
+        this.track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
         this.track.style.transform = `translateX(${translateX}px)`;
         
         // Update dots
@@ -182,6 +220,9 @@ class Carousel {
         
         // Update slide areas
         this.updateSlideAreas();
+        
+        // Update ARIA live region for screen readers
+        this.updateAriaLive();
     }
     
     updateDots() {
@@ -190,19 +231,36 @@ class Carousel {
         const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === this.currentIndex);
+            dot.setAttribute('aria-current', index === this.currentIndex ? 'true' : 'false');
         });
     }
     
     updateSlideAreas() {
         if (this.leftSlideArea) {
-            this.leftSlideArea.style.opacity = this.currentIndex === 0 ? '0.3' : '0.5';
+            this.leftSlideArea.style.opacity = this.currentIndex === 0 ? '0.3' : '0.7';
             this.leftSlideArea.style.cursor = this.currentIndex === 0 ? 'default' : 'pointer';
+            this.leftSlideArea.setAttribute('aria-disabled', this.currentIndex === 0 ? 'true' : 'false');
         }
         
         if (this.rightSlideArea) {
-            this.rightSlideArea.style.opacity = this.currentIndex >= this.maxIndex ? '0.3' : '0.5';
+            this.rightSlideArea.style.opacity = this.currentIndex >= this.maxIndex ? '0.3' : '0.7';
             this.rightSlideArea.style.cursor = this.currentIndex >= this.maxIndex ? 'default' : 'pointer';
+            this.rightSlideArea.setAttribute('aria-disabled', this.currentIndex >= this.maxIndex ? 'true' : 'false');
         }
+    }
+    
+    updateAriaLive() {
+        // Create or update ARIA live region
+        let liveRegion = this.section.querySelector('.carousel-aria-live');
+        if (!liveRegion) {
+            liveRegion = document.createElement('div');
+            liveRegion.className = 'carousel-aria-live';
+            liveRegion.setAttribute('aria-live', 'polite');
+            liveRegion.setAttribute('aria-atomic', 'true');
+            liveRegion.style.cssText = 'position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;';
+            this.section.appendChild(liveRegion);
+        }
+        liveRegion.textContent = `Slide ${this.currentIndex + 1} of ${this.maxIndex + 1}`;
     }
     
     goToSlide(index) {
@@ -228,9 +286,19 @@ class Carousel {
         // Left slide area
         if (this.leftSlideArea) {
             this.leftSlideArea.addEventListener('click', (e) => {
-                e.stopPropagation();
                 if (this.currentIndex > 0) {
                     this.prevSlide();
+                    e.stopPropagation();
+                }
+            });
+            
+            // Add keyboard support
+            this.leftSlideArea.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (this.currentIndex > 0) {
+                        this.prevSlide();
+                    }
                 }
             });
         }
@@ -238,9 +306,19 @@ class Carousel {
         // Right slide area
         if (this.rightSlideArea) {
             this.rightSlideArea.addEventListener('click', (e) => {
-                e.stopPropagation();
                 if (this.currentIndex < this.maxIndex) {
                     this.nextSlide();
+                    e.stopPropagation();
+                }
+            });
+            
+            // Add keyboard support
+            this.rightSlideArea.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (this.currentIndex < this.maxIndex) {
+                        this.nextSlide();
+                    }
                 }
             });
         }
@@ -268,13 +346,15 @@ class Carousel {
         let startX = 0;
         let currentX = 0;
         let isDragging = false;
+        let startTime = 0;
         
         this.track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             currentX = startX;
             isDragging = true;
+            startTime = Date.now();
             this.track.style.transition = 'none';
-        });
+        }, { passive: true });
         
         this.track.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
@@ -293,16 +373,18 @@ class Carousel {
             const dragTranslate = baseTranslate + diff;
             
             this.track.style.transform = `translateX(${dragTranslate}px)`;
-        });
+        }, { passive: true });
         
         this.track.addEventListener('touchend', () => {
             if (!isDragging) return;
             
             isDragging = false;
-            this.track.style.transition = 'transform 0.5s ease';
+            this.track.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             
             const diff = currentX - startX;
-            const threshold = 50;
+            const timeDiff = Date.now() - startTime;
+            const velocity = Math.abs(diff) / timeDiff;
+            const threshold = velocity > 0.3 ? 30 : 50;
             
             if (Math.abs(diff) > threshold) {
                 if (diff > 0) {
@@ -313,6 +395,27 @@ class Carousel {
             } else {
                 this.updateCarousel();
             }
+        });
+    }
+    
+    addKeyboardNavigation() {
+        // Add keyboard navigation for carousel items
+        this.cards.forEach((card, index) => {
+            card.setAttribute('tabindex', '0');
+            
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    if (index < this.cards.length - 1) {
+                        this.cards[index + 1].focus();
+                    }
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    if (index > 0) {
+                        this.cards[index - 1].focus();
+                    }
+                }
+            });
         });
     }
     
@@ -332,10 +435,7 @@ class Carousel {
 let carousels = {};
 
 function initCarousels() {
-    const carouselSections = [
-        'tradisi', 
-        'alam'
-    ];
+    const carouselSections = ['tradisi', 'alam'];
     
     carouselSections.forEach(sectionId => {
         const sectionElement = document.getElementById(sectionId);
@@ -354,39 +454,118 @@ function initCardEffects() {
     cards.forEach((card, index) => {
         card.style.setProperty('--card-index', index);
         
+        // Add focus styles for keyboard navigation
+        card.addEventListener('focus', function() {
+            this.style.outline = '3px solid var(--primary)';
+            this.style.outlineOffset = '2px';
+        });
+        
+        card.addEventListener('blur', function() {
+            this.style.outline = 'none';
+        });
+        
         card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.15)';
         });
         
         card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
+            this.style.transform = 'translateY(0) scale(1)';
             this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
         });
     });
 }
 
+// ===== Lazy Load Images =====
+function initLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                        img.classList.add('loaded');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        });
+        
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    } else {
+        // Fallback for browsers without IntersectionObserver
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
+        });
+    }
+}
+
+// ===== Back to Top Button =====
+function initBackToTop() {
+    if (!backToTop) return;
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Keyboard support
+    backToTop.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
+}
+
 // ===== Initialize Everything =====
 function init() {
-    // Initialize carousels (hanya tradisi dan alam)
+    // Initialize carousels
     carousels = initCarousels();
     
     // Handle window resize
-    window.addEventListener('resize', () => {
+    const resizeHandler = () => {
         handleNavbarScroll();
         
         // Update all carousels on resize
         Object.values(carousels).forEach(carousel => {
             if (carousel) carousel.handleResize();
         });
-    });
+    };
+    
+    window.addEventListener('resize', resizeHandler);
+    window.addEventListener('orientationchange', resizeHandler);
     
     // Handle scroll
     window.addEventListener('scroll', handleNavbarScroll);
     
+    // Handle scroll indicator
+    initScrollIndicator();
+    
     // Mobile menu
     if (hamburger) {
         hamburger.addEventListener('click', toggleMobileMenu);
+        
+        // Keyboard support for hamburger
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            } else if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
     }
     
     // Close mobile menu when clicking outside
@@ -398,21 +577,32 @@ function init() {
         });
     }
     
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu && navMenu.classList.contains('active')) {
-                toggleMobileMenu();
-            }
-        });
+    // Close mobile menu when pressing Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu && navMenu.classList.contains('active')) {
+            toggleMobileMenu();
+        }
     });
     
     // Initialize other features
     initSmoothScroll();
     initCardEffects();
+    initLazyLoading();
+    initBackToTop();
     
     // Initialize on load
     handleNavbarScroll();
+    
+    // Add loading state removal
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        
+        // Remove any loading skeletons
+        const skeletons = document.querySelectorAll('.skeleton-loading');
+        skeletons.forEach(skeleton => {
+            skeleton.classList.remove('skeleton-loading');
+        });
+    });
 }
 
 // ===== Start the Application =====
