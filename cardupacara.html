@@ -3,161 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pura - Spiritualitas Bali</title>
+    <title>Upacara - Spiritualitas Bali</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .detail-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1588666309990-d68f08e3d4c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        /* NEW: Content Box dengan gambar dan teks dalam satu kotak */
-        .content-box {
-            background-color: var(--white);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            margin: 2.5rem 0;
-            transition: var(--transition);
-        }
-        
-        .content-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .content-box-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-        
-        .content-box-content {
-            padding: 2rem;
-        }
-        
-        .content-box h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--primary);
-        }
-        
-        .content-box p {
-            color: var(--text);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        
-        /* Alternating layout untuk desktop */
-        @media (min-width: 768px) {
-            .content-box {
-                display: flex;
-                min-height: 300px;
-            }
-            
-            .content-box:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-            
-            .content-box-image {
-                width: 40%;
-                height: auto;
-                flex-shrink: 0;
-            }
-            
-            .content-box-content {
-                width: 60%;
-                padding: 2.5rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-        }
-        
-        /* Info Box styling */
-        .info-box {
-            background: linear-gradient(135deg, var(--primary) 0%, #E6C158 100%);
-            color: var(--dark);
-            padding: 2rem;
-            border-radius: var(--radius);
-            margin: 2.5rem 0;
-            box-shadow: var(--shadow);
-            text-align: center;
-        }
-        
-        .info-box h3 {
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .info-item {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-        }
-        
-        .info-label {
-            font-weight: 600;
-            color: var(--dark);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-value {
-            color: var(--secondary);
-            font-weight: 500;
-        }
-        
-        /* Feature Grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        /* Quote Box */
-        .quote-box {
-            background: linear-gradient(135deg, var(--light) 0%, rgba(244, 241, 222, 0.9) 100%);
-            border-left: 4px solid var(--primary);
-            padding: 2rem;
-            margin: 2.5rem 0;
-            border-radius: 0 var(--radius) var(--radius) 0;
-            font-style: italic;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        .quote-author {
-            text-align: right;
-            color: var(--text-light);
-            margin-top: 1rem;
-            font-style: normal;
-            font-weight: 500;
-        }
-        
-        /* Back button styling */
-        .back-button-wrapper {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -197,8 +46,8 @@
 
     <!-- Header Detail -->
     <header class="detail-header">
-        <h1>Pura</h1>
-        <p class="subtitle">Tempat Suci Umat Hindu Bali yang Menyatu dengan Alam dan Kehidupan Sehari-hari</p>
+        <h1>Upacara Adat Bali</h1>
+        <p class="subtitle">Upacara Nyepi hari dimana keheningan total di Bali untuk menyucikan diri dan alam menyambut tahun baru Saka.</p>
         <a href="index.html#spiritualitas" class="back-button">
             <i class="fas fa-arrow-left"></i> Kembali ke Spiritualitas
         </a>
@@ -212,32 +61,32 @@
                 <img src="https://images.unsplash.com/photo-1597074866923-dc0589150358?ixlib=rb-4.0.3&auto=format&fit=crop&w=800" 
                      alt="Makna Filosofi Pura" class="content-box-image">
                 <div class="content-box-content">
-                    <h3>Makna dan Filosofi Pura</h3>
-                    <p>Pura dalam bahasa Bali berarti "tempat suci" atau "tempat yang dikelilingi tembok". Dalam konteks agama Hindu Bali, pura adalah tempat ibadah yang berfungsi sebagai jembatan antara manusia dengan Sang Hyang Widhi (Tuhan Yang Maha Esa) dan para dewa-dewi.</p>
-                    <p>Setiap pura memiliki struktur yang sangat simbolis, terdiri dari tiga bagian utama yang melambangkan tiga alam dalam kosmologi Hindu Bali.</p>
+                    <h3>Makna dan Filosofi Nyepi</h3>
+                    <p>Nyepi memiliki makna filosofis mendalam sebagai hari penyucian diri dan alam semesta melalui keheningan total, di mana empat pantangan utama (Catur Brata Penyepian) diterapkan untuk melepaskan keterikatan duniawi, melakukan introspeksi, dan mengusir energi negatif, sehingga dapat memulai tahun baru Saka dengan hati bersih dan pikiran jernih dalam keseimbangan semesta.</p>
+                    <p>Pada hari Nyepi, bandara internasional Bali ditutup total selama 24 jam dan semua aktivitas di luar rumah dihentikan.</p>
                 </div>
             </div>
 
 
             <!-- Info Box -->
             <div class="info-box">
-                <h3>Fakta Singkat Pura</h3>
+                <h3>Fakta Singkat Nyepi</h3>
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Jumlah di Bali</span>
-                        <span class="info-value">10,000+ Pura</span>
+                        <span class="info-label">Dilaksanakan di Bali</span>
+                        <span class="info-value">Lebih dari 2.000 Tahun</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Paling Tua</span>
-                        <span class="info-value">Pura Besakih (Abad 8)</span>
+                        <span class="info-label">Durasi</span>
+                        <span class="info-value">24 Jam Tepat</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Fungsi Utama</span>
-                        <span class="info-value">Tempat Ibadah</span>
+                        <span class="info-value">Refleksi Diri</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Material Utama</span>
-                        <span class="info-value">Batu Andesit</span>
+                        <span class="info-label">Simbol Inti</span>
+                        <span class="info-value">Ogoh-ogoh (sehari sebelum Nyepi)</span>
                     </div>
                 </div>
             </div>
