@@ -607,3 +607,221 @@ function init() {
 
 // ===== Start the Application =====
 document.addEventListener('DOMContentLoaded', init);
+
+// Video Loading Effect
+document.addEventListener('DOMContentLoaded', function() {
+    const videoLinks = document.querySelectorAll('.video-link');
+    const videoPreviews = document.querySelectorAll('.video-preview');
+    
+    // Preload gambar untuk efek yang lebih smooth
+    videoPreviews.forEach(preview => {
+        const img = new Image();
+        img.src = preview.src;
+        img.onload = function() {
+            preview.classList.remove('loading');
+            preview.style.opacity = '1';
+        };
+        preview.classList.add('loading');
+    });
+    
+    // Efek hover dengan delay untuk performance
+    videoLinks.forEach(link => {
+        let hoverTimer;
+        
+        link.addEventListener('mouseenter', function() {
+            clearTimeout(hoverTimer);
+            const preview = this.querySelector('.video-preview');
+            const overlay = this.querySelector('.video-overlay');
+            
+            hoverTimer = setTimeout(() => {
+                if (preview) {
+                    preview.style.transform = 'scale(1.05)';
+                }
+                if (overlay) {
+                    overlay.style.backdropFilter = 'blur(2px)';
+                }
+            }, 50);
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            clearTimeout(hoverTimer);
+            const preview = this.querySelector('.video-preview');
+            const overlay = this.querySelector('.video-overlay');
+            
+            if (preview) {
+                preview.style.transform = 'scale(1)';
+            }
+            if (overlay) {
+                overlay.style.backdropFilter = 'none';
+            }
+        });
+        
+        // Tambahkan tracking klik (optional untuk analytics)
+        link.addEventListener('click', function(e) {
+            // Optional: Bisa tambahkan Google Analytics atau logging di sini
+            console.log('Video sejarah Bali diklik');
+            
+            // Tambahkan loading state
+            this.style.opacity = '0.8';
+            
+            // Link akan tetap membuka halaman YouTube di tab yang sama
+            // (default behavior dari <a href>)
+        });
+    });
+    
+    // Optional: Smooth transition untuk semua gambar
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.style.transition = 'opacity 0.3s ease';
+        img.style.opacity = '0';
+        
+        if (img.complete) {
+            img.style.opacity = '1';
+        } else {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
+            });
+        }
+    });
+});
+
+
+// Efek hover dan loading untuk flex layout
+document.addEventListener('DOMContentLoaded', function() {
+    // Preload gambar video
+    const videoThumb = document.querySelector('.video-thumbnail');
+    if (videoThumb) {
+        videoThumb.classList.add('loading');
+        const img = new Image();
+        img.src = videoThumb.src;
+        img.onload = function() {
+            videoThumb.classList.remove('loading');
+        };
+    }
+    
+    // Efek hover untuk period items
+    const periods = document.querySelectorAll('.period');
+    periods.forEach(period => {
+        period.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateX(5px)';
+        });
+        
+        period.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateX(0)';
+        });
+    });
+    
+    // Efek hover untuk facts list
+    const factItems = document.querySelectorAll('.facts-list li');
+    factItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            this.querySelector('i').style.transform = 'scale(1.2)';
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            this.querySelector('i').style.transform = 'scale(1)';
+        });
+    });
+});
+
+
+// Fungsi untuk Modal Gambar Geografis
+let isModalAnimating = false;
+
+function openImageModal() {
+    if (isModalAnimating) return;
+    
+    const modal = document.getElementById('imageModal');
+    const currentImg = document.getElementById('geografis-img');
+    const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    
+    // Update gambar modal
+    modalImg.src = currentImg.src;
+    modalImg.alt = currentImg.alt;
+    modalTitle.textContent = 'Peta Lokasi Bali';
+    modalDesc.textContent = 'Bali terletak di antara Pulau Jawa dan Pulau Lombok';
+    
+    // Reset animation state
+    modal.classList.remove('closing');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    
+    // Focus tombol close untuk aksesibilitas
+    setTimeout(() => {
+        document.querySelector('.close-btn').focus();
+    }, 100);
+}
+
+function closeImageModal() {
+    if (isModalAnimating) return;
+    
+    const modal = document.getElementById('imageModal');
+    isModalAnimating = true;
+    
+    // Tambah class closing untuk animasi
+    modal.classList.add('closing');
+    
+    // Tunggu animasi selesai baru sembunyikan
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('closing');
+        document.body.style.overflow = 'auto';
+        isModalAnimating = false;
+    }, 300);
+}
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('imageModal');
+    
+    // Tutup modal dengan klik di luar
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal && !isModalAnimating) {
+                closeImageModal();
+            }
+        });
+    }
+    
+    // Tutup modal dengan tombol Escape
+    document.addEventListener('keydown', function(e) {
+        const modal = document.getElementById('imageModal');
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex' && !isModalAnimating) {
+            closeImageModal();
+        }
+    });
+    
+    // Tambahkan touch events untuk mobile
+    const imagePreview = document.querySelector('.image-preview');
+    if (imagePreview) {
+        imagePreview.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            openImageModal();
+        });
+    }
+    
+    // Tambahkan keyboard navigation untuk tombol zoom
+    const zoomBtn = document.querySelector('.zoom-btn');
+    if (zoomBtn) {
+        zoomBtn.setAttribute('tabindex', '0');
+        zoomBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openImageModal();
+            }
+        });
+    }
+    
+    // Tambahkan keyboard navigation untuk close button
+    const closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                closeImageModal();
+            }
+        });
+    }
+});
