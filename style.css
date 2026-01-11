@@ -3523,4 +3523,1172 @@ main {
     }
 }
 
-/* CSS lainnya (boundaries, facts, modal, etc) tetap sama seperti sebelumnya */
+/* ===== TABEL FILOSOFI RESPONSIF ===== */
+.philosophy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.philosophy-table th {
+    background-color: var(--secondary);
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.philosophy-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.philosophy-table tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.5);
+}
+
+.philosophy-table tr:hover {
+    background-color: rgba(233, 245, 243, 0.8);
+}
+
+.philosophy-table strong {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+/* Responsive styles untuk tabel filosofi */
+@media (max-width: 992px) {
+    .philosophy-table {
+        font-size: 0.95rem;
+    }
+    
+    .philosophy-table th,
+    .philosophy-table td {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Buat tabel menjadi scrollable horizontal */
+    .philosophy-table-wrapper {
+        overflow-x: auto;
+        margin: 20px 0;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .philosophy-table {
+        min-width: 600px; /* Minimum width untuk scroll horizontal */
+        font-size: 0.9rem;
+        margin: 0;
+    }
+    
+    .philosophy-table th,
+    .philosophy-table td {
+        padding: 10px 8px;
+        white-space: nowrap;
+    }
+    
+    /* Alternatif: Stack layout untuk mobile sangat kecil */
+    .philosophy-table.responsive-stack {
+        min-width: 100%;
+    }
+    
+    .philosophy-table.responsive-stack,
+    .philosophy-table.responsive-stack thead,
+    .philosophy-table.responsive-stack tbody,
+    .philosophy-table.responsive-stack th,
+    .philosophy-table.responsive-stack td,
+    .philosophy-table.responsive-stack tr {
+        display: block;
+    }
+    
+    .philosophy-table.responsive-stack thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .philosophy-table.responsive-stack tr {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+        border-radius: 8px;
+        padding: 10px;
+        background: white;
+    }
+    
+    .philosophy-table.responsive-stack td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .philosophy-table.responsive-stack td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+        color: var(--dark);
+    }
+}
+
+/* Alternatif styling untuk layout stack */
+@media (max-width: 576px) {
+    .philosophy-table {
+        font-size: 0.85rem;
+    }
+    
+    /* Layout stack untuk sangat kecil */
+    #filosofi .philosophy-table {
+        display: block;
+        width: 100%;
+    }
+    
+    #filosofi .philosophy-table thead {
+        display: none;
+    }
+    
+    #filosofi .philosophy-table tbody,
+    #filosofi .philosophy-table tr,
+    #filosofi .philosophy-table td {
+        display: block;
+        width: 100%;
+    }
+    
+    #filosofi .philosophy-table tr {
+        margin-bottom: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 15px;
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    #filosofi .philosophy-table td {
+        padding: 8px 0;
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+    
+    #filosofi .philosophy-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        font-weight: 600;
+        color: var(--dark);
+    }
+    
+    /* Tambahkan data-label untuk setiap td di HTML */
+}
+
+/* Untuk elemen parent dari tabel */
+#filosofi {
+    padding: 2rem 1rem;
+}
+
+#filosofi h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#filosofi p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* ===== BAGIAN BUDAYA DAN ADAT ===== */
+
+/* Culture Highlight */
+.culture-highlight {
+    background: linear-gradient(135deg, var(--light) 0%, rgba(244, 241, 222, 0.9) 100%);
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem 1.5rem 1.5rem 3rem;
+    margin: 2rem 0 3rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.highlight-icon {
+    color: var(--primary);
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.highlight-text {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark);
+    font-style: italic;
+}
+
+/* Culture Grid dengan Card */
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.culture-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.culture-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.culture-card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.culture-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.culture-card:hover .culture-card-image img {
+    transform: scale(1.05);
+}
+
+.culture-card-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(212, 175, 55, 0.95);
+    color: var(--dark);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.culture-card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.culture-card-content h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+.culture-card-content p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: var(--text);
+    flex: 1;
+}
+
+.culture-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.culture-tag {
+    background: var(--light);
+    color: var(--dark);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+
+.culture-card:hover .culture-tag {
+    background: var(--primary);
+    color: var(--dark);
+}
+
+/* Culture Roles Grid */
+.culture-roles {
+    margin: 4rem 0 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.roles-title {
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.role-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.role-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.role-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    color: var(--dark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.role-item:hover .role-icon {
+    background: var(--dark);
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.role-content {
+    flex: 1;
+}
+
+.role-content h4 {
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.role-content p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-light);
+}
+
+/* Culture Quote */
+.culture-quote {
+    background: linear-gradient(135deg, var(--dark) 0%, #2d5a3d 100%);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: var(--radius);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: 3rem;
+}
+
+.culture-quote::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+    background-size: cover;
+}
+
+.quote-mark {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.author-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.author-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== RESPONSIVE BUDAYA ===== */
+
+@media (max-width: 1200px) {
+    .culture-grid {
+        gap: 1.5rem;
+    }
+    
+    .roles-grid {
+        gap: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .culture-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .roles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .culture-quote {
+        padding: 2.5rem 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .culture-highlight {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .highlight-icon {
+        align-self: center;
+    }
+    
+    .culture-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .culture-card-image {
+        height: 180px;
+    }
+    
+    .roles-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .culture-roles {
+        padding: 1.5rem;
+    }
+    
+    .roles-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .role-item {
+        padding: 1.2rem;
+    }
+    
+    .culture-quote {
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .quote-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .culture-card-content {
+        padding: 1.2rem;
+    }
+    
+    .culture-card-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .culture-card-badge {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+    
+    .role-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .role-content h4 {
+        font-size: 1rem;
+    }
+    
+    .quote-mark {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .quote-text {
+        font-size: 1rem;
+    }
+    
+    .author-name {
+        font-size: 1rem;
+    }
+    
+    .author-title {
+        font-size: 0.85rem;
+    }
+}
+
+/* Animasi untuk Culture Items */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.culture-card,
+.role-item,
+.culture-quote {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.culture-card:nth-child(1) { animation-delay: 0.1s; }
+.culture-card:nth-child(2) { animation-delay: 0.2s; }
+.culture-card:nth-child(3) { animation-delay: 0.3s; }
+.role-item:nth-child(1) { animation-delay: 0.1s; }
+.role-item:nth-child(2) { animation-delay: 0.2s; }
+.role-item:nth-child(3) { animation-delay: 0.3s; }
+.role-item:nth-child(4) { animation-delay: 0.4s; }
+.role-item:nth-child(5) { animation-delay: 0.5s; }
+.role-item:nth-child(6) { animation-delay: 0.6s; }
+.culture-quote { animation-delay: 0.7s; }
+
+/* ===== VARIASI CARD DESIGN ===== */
+
+/* 1. CARD SPIRITUALITAS - Design dengan efek spiritual */
+#spiritualitas .content-card {
+    border-top: 4px solid var(--primary);
+    background: linear-gradient(to bottom, #ffffff 0%, #f9f7f0 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#spiritualitas .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none" opacity="0.03"><path d="M50,5 L60,40 L95,40 L65,60 L75,95 L50,75 L25,95 L35,60 L5,40 L40,40 Z" fill="%23D4AF37"/></svg>');
+    background-size: 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#spiritualitas .content-card:hover::before {
+    opacity: 1;
+}
+
+#spiritualitas .card-image {
+    position: relative;
+}
+
+#spiritualitas .card-overlay {
+    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.8));
+}
+
+#spiritualitas .card-badge {
+    background: rgba(212, 175, 55, 0.9);
+    color: var(--dark);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#spiritualitas .card-content h3 {
+    color: var(--dark);
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+#spiritualitas .card-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+#spiritualitas .content-card:hover .card-content h3::after {
+    width: 80px;
+}
+
+#spiritualitas .card-tag {
+    background: var(--light);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+/* 2. CARD TRADISI - Design dengan efek budaya dan seni */
+#tradisi .carousel-item .content-card {
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+#tradisi .carousel-item .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, transparent 50%, var(--primary) 50%);
+    border-radius: 0 0 0 100%;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+#tradisi .carousel-item .content-card:hover::before {
+    width: 60px;
+    height: 60px;
+}
+
+#tradisi .card-image {
+    overflow: hidden;
+    border-bottom: 2px solid var(--light);
+}
+
+#tradisi .card-img {
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#tradisi .content-card:hover .card-img {
+    transform: scale(1.1) rotate(1deg);
+}
+
+#tradisi .card-overlay {
+    background: linear-gradient(to bottom, transparent 40%, rgba(46, 139, 87, 0.8));
+}
+
+#tradisi .card-badge {
+    background: var(--secondary);
+    color: white;
+    font-weight: 600;
+}
+
+#tradisi .card-content h3 {
+    color: var(--secondary);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+#tradisi .card-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 4.5em;
+    line-height: 1.5;
+}
+
+#tradisi .card-tag {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* 3. CARD ALAM - Design dengan efek natural/organik */
+#alam .carousel-item .content-card {
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: none;
+}
+
+#alam .carousel-item .content-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 70%, rgba(212, 175, 55, 0.05) 100%);
+    pointer-events: none;
+}
+
+#alam .card-image {
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+}
+
+#alam .card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+}
+
+#alam .card-img {
+    transition: transform 0.8s ease;
+}
+
+#alam .content-card:hover .card-img {
+    transform: scale(1.15);
+}
+
+#alam .card-overlay {
+    background: transparent;
+    z-index: 2;
+}
+
+#alam .card-badge {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--secondary);
+    border: 1px solid rgba(46, 139, 87, 0.2);
+    font-weight: 600;
+}
+
+#alam .card-content {
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+
+#alam .card-content h3 {
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+#alam .card-content p {
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+#alam .card-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 1rem;
+}
+
+#alam .card-tag {
+    background: var(--light);
+    padding: 4px 12px;
+    border-radius: 12px;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+/* 4. CARD MODERN - Design minimalis modern */
+#modern .content-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+#modern .content-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.03) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#modern .content-card:hover::before {
+    opacity: 1;
+}
+
+#modern .content-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+#modern .card-image {
+    height: 220px;
+    background: linear-gradient(45deg, #f5f5f5, #e9ecef);
+}
+
+#modern .card-img {
+    mix-blend-mode: multiply;
+    filter: contrast(1.1);
+    transition: all 0.5s ease;
+}
+
+#modern .content-card:hover .card-img {
+    mix-blend-mode: normal;
+    filter: contrast(1);
+}
+
+#modern .card-overlay {
+    background: linear-gradient(to bottom, transparent 30%, rgba(0, 0, 0, 0.7));
+}
+
+#modern .card-badge {
+    background: var(--dark);
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+#modern .card-content {
+    padding: 1.5rem;
+}
+
+#modern .card-content h3 {
+    color: var(--dark);
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+#modern .card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+#modern .card-footer {
+    border-top: none;
+    padding-top: 0;
+}
+
+#modern .card-tag {
+    background: linear-gradient(45deg, var(--primary), #E6C158);
+    color: var(--dark);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ===== RESPONSIVE CARD DESIGNS ===== */
+
+@media (max-width: 1200px) {
+    /* Adjust heights for consistency */
+    .content-card,
+    .carousel-item .content-card {
+        height: 420px;
+    }
+    
+    #alam .card-image,
+    #modern .card-image {
+        height: 220px;
+    }
+}
+
+@media (max-width: 992px) {
+    .content-card,
+    .carousel-item .content-card {
+        height: 400px;
+    }
+    
+    #alam .card-image,
+    #modern .card-image {
+        height: 200px;
+    }
+    
+    /* Spiritualitas grid mobile */
+    #spiritualitas .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Modern grid mobile */
+    #modern .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* All cards mobile optimization */
+    .content-card,
+    .carousel-item .content-card {
+        height: 380px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .card-image {
+        height: 180px;
+    }
+    
+    #alam .card-image,
+    #modern .card-image {
+        height: 180px;
+    }
+    
+    /* Single column for spirituality and modern */
+    #spiritualitas .card-grid,
+    #modern .card-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 2rem auto 0;
+    }
+    
+    .card-content {
+        padding: 1.2rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.2rem;
+        min-height: auto;
+    }
+    
+    .card-description {
+        -webkit-line-clamp: 4;
+        height: 6em;
+    }
+    
+    /* Tradisi carousel mobile */
+    #tradisi .carousel-track {
+        gap: 15px;
+    }
+    
+    #tradisi .carousel-item {
+        flex: 0 0 calc(100% - 10px);
+    }
+    
+    #alam .carousel-track {
+        gap: 15px;
+    }
+    
+    #alam .carousel-item {
+        flex: 0 0 calc(100% - 10px);
+    }
+    
+    /* Remove decorative elements on mobile */
+    #spiritualitas .content-card::before,
+    #tradisi .carousel-item .content-card::before,
+    #modern .content-card::before {
+        display: none;
+    }
+    
+    #alam .carousel-item .content-card::after {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-card,
+    .carousel-item .content-card {
+        height: 360px;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+    
+    #alam .card-image,
+    #modern .card-image {
+        height: 160px;
+    }
+    
+    .card-content {
+        padding: 1rem;
+    }
+    
+    .card-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .card-description {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
+        height: 4.5em;
+        margin-bottom: 1rem;
+    }
+    
+    .card-badge {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+    
+    .card-tag {
+        font-size: 0.8rem;
+    }
+    
+    #spiritualitas .card-content h3::after {
+        display: none;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .content-card:hover {
+        transform: none !important;
+    }
+    
+    .content-card:active {
+        transform: scale(0.98) !important;
+    }
+    
+    #spiritualitas .content-card:hover::before,
+    #tradisi .content-card:hover .card-img,
+    #alam .content-card:hover .card-img,
+    #modern .content-card:hover .card-img {
+        transform: none;
+    }
+    
+    .card-overlay,
+    .card-badge,
+    .card-tag {
+        opacity: 1 !important;
+    }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .content-card,
+    .card-img,
+    .card-badge,
+    .card-tag,
+    #spiritualitas .content-card::before,
+    #tradisi .carousel-item .content-card::before,
+    #modern .content-card::before {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .content-card {
+        border: 2px solid var(--dark) !important;
+    }
+    
+    .card-badge {
+        background: var(--dark) !important;
+        color: var(--white) !important;
+        border: 1px solid var(--white) !important;
+    }
+    
+    .card-content h3 {
+        color: var(--dark) !important;
+        text-decoration: underline;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    #spiritualitas .content-card,
+    #tradisi .carousel-item .content-card,
+    #alam .carousel-item .content-card,
+    #modern .content-card {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+    
+    .card-content h3 {
+        color: #ffffff;
+    }
+    
+    .card-description {
+        color: #b0b0b0;
+    }
+    
+    #spiritualitas .content-card::before {
+        opacity: 0.1;
+    }
+}
